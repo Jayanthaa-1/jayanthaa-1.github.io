@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { motion } from 'framer-motion';
 import { useInView } from 'react-intersection-observer';
-import { Mail, Phone, MapPin, Send, Github, Linkedin, Twitter } from 'lucide-react';
+import { Mail, Phone, MapPin, Send, Github, Linkedin } from 'lucide-react';
 
 const Contact: React.FC = () => {
   const [ref, inView] = useInView({
@@ -16,10 +16,29 @@ const Contact: React.FC = () => {
     message: ''
   });
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    // Handle form submission here
-    console.log('Form submitted:', formData);
+
+    try {
+      const response = await fetch("https://formspree.io/f/meokpjel", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+          Accept: "application/json",
+        },
+        body: JSON.stringify(formData),
+      });
+
+      if (response.ok) {
+        alert("✅ Message sent successfully!");
+        setFormData({ name: '', email: '', subject: '', message: '' });
+      } else {
+        alert("❌ Failed to send message. Please try again.");
+      }
+    } catch (error) {
+      console.error("Error:", error);
+      alert("⚠️ An error occurred. Please try again.");
+    }
   };
 
   const handleInputChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
@@ -46,7 +65,7 @@ const Contact: React.FC = () => {
       icon: MapPin,
       label: 'Location',
       value: 'Erode, TN-India',
-      link: 'https://www.google.com/maps/place/Erode,+Tamil+Nadu/@11.3467074,77.6741971,13755m/data=!3m2!1e3!4b1!4m6!3m5!1s0x3ba96f46762f4671:0xd97da6e3d9c7f75e!8m2!3d11.3410364!4d77.7171642!16zL20vMDQ3N2hk?entry=ttu&g_ep=EgoyMDI1MDYxNy4wIKXMDSoASAFQAw%3D%3D'
+      link: 'https://www.google.com/maps/place/Erode,+Tamil+Nadu'
     }
   ];
 
@@ -57,7 +76,6 @@ const Contact: React.FC = () => {
 
   return (
     <section id="contact" className="py-20 bg-dark-bg relative overflow-hidden">
-      {/* Background Effects */}
       <div className="absolute inset-0">
         <div className="absolute top-0 left-1/4 w-96 h-96 bg-cyber-green/5 rounded-full blur-3xl"></div>
         <div className="absolute bottom-0 right-1/4 w-96 h-96 bg-cyber-blue/5 rounded-full blur-3xl"></div>
@@ -81,7 +99,6 @@ const Contact: React.FC = () => {
         </motion.div>
 
         <div className="grid lg:grid-cols-2 gap-12">
-          {/* Contact Info */}
           <motion.div
             initial={{ opacity: 0, x: -50 }}
             animate={inView ? { opacity: 1, x: 0 } : {}}
@@ -96,7 +113,6 @@ const Contact: React.FC = () => {
               </p>
             </div>
 
-            {/* Contact Information */}
             <div className="space-y-4">
               {contactInfo.map((info, index) => (
                 <motion.a
@@ -118,7 +134,6 @@ const Contact: React.FC = () => {
               ))}
             </div>
 
-            {/* Social Links */}
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               animate={inView ? { opacity: 1, y: 0 } : {}}
@@ -141,7 +156,6 @@ const Contact: React.FC = () => {
             </motion.div>
           </motion.div>
 
-          {/* Contact Form */}
           <motion.div
             initial={{ opacity: 0, x: 50 }}
             animate={inView ? { opacity: 1, x: 0 } : {}}
