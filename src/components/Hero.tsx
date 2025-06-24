@@ -74,7 +74,7 @@ const Hero: React.FC = () => {
             transition={{ duration: 0.8, delay: 0.4 }}
             className="text-xl md:text-2xl text-gray-300 mb-4 font-mono"
           >
-            <span className="text-cyber-green">&gt;</span> Cybersecurity  Enthusiast
+            <span className="text-cyber-green">&gt;</span> Cybersecurity Enthusiast
           </motion.div>
 
           <motion.p
@@ -96,9 +96,15 @@ const Hero: React.FC = () => {
             <button className="px-8 py-4 bg-gradient-to-r from-cyber-green to-cyber-blue text-black font-semibold rounded-lg hover:shadow-lg hover:shadow-cyber-green/25 transition-all duration-300 transform hover:scale-105">
               View My Work
             </button>
-            <button className="px-8 py-4 border-2 border-cyber-green text-cyber-green font-semibold rounded-lg hover:bg-cyber-green hover:text-black transition-all duration-300 transform hover:scale-105">
+
+            <a
+              href="/resume.pdf"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="px-8 py-4 border-2 border-cyber-green text-cyber-green font-semibold rounded-lg hover:bg-cyber-green hover:text-black transition-all duration-300 transform hover:scale-105"
+            >
               Resume
-            </button>
+            </a>
           </motion.div>
         </div>
       </div>
