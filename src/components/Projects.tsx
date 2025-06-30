@@ -1,7 +1,7 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 import { useInView } from 'react-intersection-observer';
-import { ExternalLink, Github, Shield, Bug, Network, Lock } from 'lucide-react';
+import { Github, Shield, Bug, Network, Lock } from 'lucide-react';
 
 const Projects: React.FC = () => {
   const [ref, inView] = useInView({
@@ -11,20 +11,22 @@ const Projects: React.FC = () => {
 
   const projects = [
     {
-      title: 'Network Vulnerability Scanner',
-      description: 'Automated network scanning tool built with Python that identifies open ports, services, and potential vulnerabilities across network ranges.',
-      technologies: ['Python', 'Nmap', 'Socket Programming', 'JSON'],
+      title: 'SIGMA Rule Sample',
+      description: 'Created a Sigma rule to flag potentially malicious PowerShell commands. Built for use in SIEM tools to enhance blue team visibility.',
+      technologies: ['Sigma', 'YAML', 'Windows Event Logs', 'SIEM Platform Compatibility'],
       icon: Network,
       gradient: 'from-cyber-green to-green-400',
-      features: ['Port scanning', 'Service detection', 'Vulnerability assessment', 'Report generation']
+      features: ['Suspicious PowerShell Detection', 'SIEM Integration Ready', 'Human-Readable YAML Format', 'TTP-Based Rule Logic'],
+      github: 'https://github.com/Jayanthaa-1/sigma-rules-sample'
     },
     {
-      title: 'Web Application Security Tester',
-      description: 'Comprehensive web app security testing framework that checks for common vulnerabilities like XSS, SQL injection, and authentication flaws.',
-      technologies: ['Python', 'Selenium', 'Requests', 'BeautifulSoup'],
+      title: 'Real-Time Log File Monitor',
+      description: 'A desktop tool built in Python to monitor system log files . It provides a lightweight, user-friendly interface to view log updates.',
+      technologies: ['Python', 'Tkinter', 'Pygtail', 'Threading'],
       icon: Bug,
       gradient: 'from-cyber-blue to-blue-400',
-      features: ['XSS detection', 'SQL injection testing', 'Authentication bypass', 'CSRF testing']
+      features: ['Monitoring', 'Graphical User Interface', 'Log Rotation Support', 'Safe & Smooth Operation'],
+      github: 'https://github.com/Jayanthaa-1/Log-File-Handling'
     },
     {
       title: 'Encrypted Communication System',
@@ -32,21 +34,22 @@ const Projects: React.FC = () => {
       technologies: ['Python', 'Cryptography', 'Socket.io', 'React'],
       icon: Lock,
       gradient: 'from-purple-500 to-pink-500',
-      features: ['AES encryption', 'RSA key exchange', 'Perfect forward secrecy', 'Secure deletion']
+      features: ['AES encryption', 'RSA key exchange', 'Perfect forward secrecy', 'Secure deletion'],
+      github: 'https://github.com/your-username/encrypted-comm-system'
     },
     {
       title: 'Penetration Testing Toolkit',
-      description: 'Custom collection of penetration testing scripts and tools for reconnaissance, enumeration, and exploitation phases.',
-      technologies: ['Bash', 'Python', 'PowerShell', 'Metasploit'],
+      description: 'A centralized REST API built using Flask on Kali Linux to automate and manage penetration testing tasks remotely.',
+      technologies: ['Flask', 'Kali Linux', 'ReportLab', 'Core Security Tools'],
       icon: Shield,
       gradient: 'from-red-500 to-orange-500',
-      features: ['Automated recon', 'Payload generation', 'Post-exploitation', 'Report automation']
+      features: ['Network Scanning via Nmap', 'SQL Injection Detection', 'Brute-Force Attacks using Hydra', 'Web Server Vulnerability Scanning'],
+      github: 'https://github.com/Jayanthaa-1/Pentest'
     }
   ];
 
   return (
     <section className="py-20 bg-dark-surface relative overflow-hidden">
-      {/* Background Pattern */}
       <div className="absolute inset-0 opacity-5">
         <div className="w-full h-full" style={{
           backgroundImage: `
@@ -94,12 +97,16 @@ const Projects: React.FC = () => {
                   </h3>
                 </div>
                 <div className="flex space-x-2 opacity-0 group-hover:opacity-100 transition-opacity">
-                  <button className="p-2 bg-dark-surface border border-cyber-green/30 rounded-lg hover:border-cyber-green hover:bg-cyber-green/10 transition-all">
-                    <Github size={16} className="text-cyber-green" />
-                  </button>
-                  <button className="p-2 bg-dark-surface border border-cyber-blue/30 rounded-lg hover:border-cyber-blue hover:bg-cyber-blue/10 transition-all">
-                    <ExternalLink size={16} className="text-cyber-blue" />
-                  </button>
+                  {project.github && (
+                    <a
+                      href={project.github}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="p-2 bg-dark-surface border border-cyber-green/30 rounded-lg hover:border-cyber-green hover:bg-cyber-green/10 transition-all"
+                    >
+                      <Github size={16} className="text-cyber-green" />
+                    </a>
+                  )}
                 </div>
               </div>
 
@@ -136,16 +143,21 @@ const Projects: React.FC = () => {
           ))}
         </div>
 
-        {/* View More Button */}
+        {/* View All Projects Button */}
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           animate={inView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.8, delay: 0.8 }}
           className="text-center mt-12"
         >
-          <button className="px-8 py-4 bg-gradient-to-r from-cyber-green to-cyber-blue text-black font-semibold rounded-lg hover:shadow-lg hover:shadow-cyber-green/25 transition-all duration-300 transform hover:scale-105">
+          <a
+            href="https://github.com/Jayanthaa-1"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="px-8 py-4 bg-gradient-to-r from-cyber-green to-cyber-blue text-black font-semibold rounded-lg hover:shadow-lg hover:shadow-cyber-green/25 transition-all duration-300 transform hover:scale-105 inline-block"
+          >
             View All Projects on GitHub
-          </button>
+          </a>
         </motion.div>
       </div>
     </section>
