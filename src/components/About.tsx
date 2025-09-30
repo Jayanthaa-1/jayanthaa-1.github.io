@@ -57,8 +57,7 @@ const About: React.FC = () => {
               how systems work and how to protect them from malicious actors.
             </p>
             <p className="text-gray-300 text-lg leading-relaxed">
-              With hands-on experience in penetration testing, vulnerability assessment, and security 
-              automation, I'm committed to staying ahead of emerging threats and contributing to a safer 
+              With hands-on experience in SOC and SIEM and Neteorks, I'm committed to staying ahead of emerging threats and contributing to a safer 
               digital world.
             </p>
             
