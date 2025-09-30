@@ -12,11 +12,7 @@ const HackerIntro: React.FC<HackerIntroProps> = ({ onComplete }) => {
   const [showCursor, setShowCursor] = useState(true);
 
   const steps = [
-    'Initializing security protocols...',
-    'Locating nearest firewall......',
-    'Politely asking it to move... [DENIED]',
-    'Decrypting confidential files... [DONE]',
-    'Pretending to be a hacker... [Welcome]'
+    '[Welcome to My Webpage]'
   ];
 
   useEffect(() => {
