@@ -11,32 +11,34 @@ const Hero: React.FC = () => {
     <section className="min-h-screen bg-gradient-to-br from-dark-bg via-dark-surface to-dark-bg relative overflow-hidden flex items-center justify-center">
       {/* Animated Background Grid */}
       <div className="absolute inset-0 opacity-20">
-        <div className="w-full h-full" style={{
-          backgroundImage: `
-            linear-gradient(rgba(0,255,65,0.1) 1px, transparent 1px),
-            linear-gradient(90deg, rgba(0,255,65,0.1) 1px, transparent 1px)
-          `,
-          backgroundSize: '100px 100px'
-        }}></div>
+        <div
+          className="w-full h-full"
+          style={{
+            backgroundImage: `
+              linear-gradient(rgba(0,255,65,0.1) 1px, transparent 1px),
+              linear-gradient(90deg, rgba(0,255,65,0.1) 1px, transparent 1px)
+            `,
+            backgroundSize: '100px 100px',
+          }}
+        />
       </div>
 
-      {/* Floating Particles */}
+      {/* Floating Particles (SAFE) */}
       {[...Array(15)].map((_, i) => (
         <motion.div
           key={i}
           className="absolute w-2 h-2 bg-cyber-green/30 rounded-full"
-          initial={{ 
-            x: Math.random() * window.innerWidth,
-            y: Math.random() * window.innerHeight 
+          style={{
+            left: `${Math.random() * 100}%`,
+            top: `${Math.random() * 100}%`,
           }}
           animate={{
-            x: Math.random() * window.innerWidth,
-            y: Math.random() * window.innerHeight,
+            y: ['0%', '100%', '0%'],
           }}
           transition={{
             duration: 20 + Math.random() * 20,
             repeat: Infinity,
-            ease: "linear"
+            ease: 'linear',
           }}
         />
       ))}
@@ -54,7 +56,7 @@ const Hero: React.FC = () => {
               <motion.div
                 className="absolute inset-0 border-2 border-cyber-blue rounded-full"
                 animate={{ rotate: 360 }}
-                transition={{ duration: 20, repeat: Infinity, ease: "linear" }}
+                transition={{ duration: 20, repeat: Infinity, ease: 'linear' }}
               />
             </div>
           </motion.div>
@@ -83,7 +85,7 @@ const Hero: React.FC = () => {
             transition={{ duration: 0.8, delay: 0.6 }}
             className="text-lg text-gray-400 max-w-2xl mx-auto mb-12 leading-relaxed"
           >
-            Passionate about securing digital landscapes and protecting against cyber threats. 
+            Passionate about securing digital landscapes and protecting against cyber threats.
             Fresh graduate ready to defend organizations from the evolving world of cybersecurity challenges.
           </motion.p>
 

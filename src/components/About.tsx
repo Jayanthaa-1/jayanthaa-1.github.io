@@ -10,9 +10,9 @@ const About: React.FC = () => {
   });
 
   const stats = [
-    { icon: Code, label: 'Projects Completed', value: '15+' },
-    { icon: Shield, label: 'Security Tools', value: '20+' },
-    { icon: Target, label: 'Vulnerabilities Found', value: '50+' },
+    { icon: Code, label: 'Projects Completed', value: '5+' },
+    { icon: Shield, label: 'Security Tools', value: '10+' },
+    { icon: Target, label: 'Alerts Closed', value: '15+' },
     { icon: User, label: 'Certifications', value: '5+' },
   ];
 
@@ -20,10 +20,14 @@ const About: React.FC = () => {
     <section id="about" className="py-20 bg-dark-surface relative overflow-hidden">
       {/* Background Pattern */}
       <div className="absolute inset-0 opacity-5">
-        <div className="w-full h-full" style={{
-          backgroundImage: `radial-gradient(circle at 1px 1px, #00ff41 1px, transparent 0)`,
-          backgroundSize: '50px 50px'
-        }}></div>
+        <div
+          className="w-full h-full"
+          style={{
+            backgroundImage:
+              'radial-gradient(circle at 1px 1px, #00ff41 1px, transparent 0)',
+            backgroundSize: '50px 50px',
+          }}
+        />
       </div>
 
       <div className="container mx-auto px-6 relative z-10">
@@ -41,7 +45,7 @@ const About: React.FC = () => {
         </motion.div>
 
         <div className="grid lg:grid-cols-2 gap-12 items-center">
-          {/* Left Side - Text Content */}
+          {/* Left Side */}
           <motion.div
             initial={{ opacity: 0, x: -50 }}
             animate={inView ? { opacity: 1, x: 0 } : {}}
@@ -51,24 +55,41 @@ const About: React.FC = () => {
             <h3 className="text-2xl font-bold text-white mb-4">
               Defending the Digital Frontier
             </h3>
+
             <p className="text-gray-300 text-lg leading-relaxed">
-              I'm a passionate cybersecurity professional with a strong foundation in ethical hacking, 
-              network security, and threat analysis. My journey began with a fascination for understanding 
-              how systems work and how to protect them from malicious actors.
+              I'm a passionate cybersecurity professional with a strong foundation
+              in ethical hacking, network security, and threat analysis. My journey
+              began with a fascination for understanding how systems work and how
+              to protect them from malicious actors.
             </p>
+
             <p className="text-gray-300 text-lg leading-relaxed">
-              With hands-on experience in SOC and SIEM and Neteorks, I'm committed to staying ahead of emerging threats and contributing to a safer 
-              digital world.
+              With hands-on experience in SOC, SIEM, and network security, I am
+              committed to staying ahead of emerging threats and contributing to a
+              safer digital world.
             </p>
-            
+
             <div className="grid grid-cols-2 gap-4 mt-8">
               <div className="bg-dark-bg/50 p-4 rounded-lg border border-dark-border">
-                <h4 className="text-cyber-green font-semibold mb-2">Education</h4>
-                <p className="text-gray-300 text-sm">Electrical Engineering <br /> Cybersecurity Focus practice </p>
+                <h4 className="text-cyber-green font-semibold mb-2">
+                  Education
+                </h4>
+                <p className="text-gray-300 text-sm">
+                  Electrical Engineering
+                  <br />
+                  Cybersecurity Focus
+                </p>
               </div>
+
               <div className="bg-dark-bg/50 p-4 rounded-lg border border-dark-border">
-                <h4 className="text-cyber-blue font-semibold mb-2">Location</h4>
-                <p className="text-gray-300 text-sm">Erode , TN<br />Open to Work</p>
+                <h4 className="text-cyber-blue font-semibold mb-2">
+                  Location
+                </h4>
+                <p className="text-gray-300 text-sm">
+                  Tamil Nadu
+                  <br />
+                  Open to Opportunities
+                </p>
               </div>
             </div>
           </motion.div>
@@ -92,8 +113,12 @@ const About: React.FC = () => {
                   <stat.icon className="text-cyber-green" size={24} />
                 </div>
                 <div className="text-center">
-                  <div className="text-2xl font-bold text-white mb-1">{stat.value}</div>
-                  <div className="text-gray-400 text-sm">{stat.label}</div>
+                  <div className="text-2xl font-bold text-white mb-1">
+                    {stat.value}
+                  </div>
+                  <div className="text-gray-400 text-sm">
+                    {stat.label}
+                  </div>
                 </div>
               </motion.div>
             ))}
